@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinações</title>
+</head>
+<body>
+    <script>
+        function pulaLinha() {
+            document.write("<br><br>");
+        }
+
+        function mostra(frase){
+            document.write(frase)
+            pulaLinha();
+        }
+
+        var num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+
+        var indice1 = 0;
+        var indice2 = indice1 + 1;
+        var indice3 = indice2 + 1;
+        var indice4 = indice3 + 1;
+        var indice5 = indice4 + 1;
+        
+        while(indice1 <25)
+        { 
+            
+            while(indice2 <25)
+            {
+                while(indice3 <25)
+                {
+                    while(indice4 < 25)
+                    {
+                        while(indice5 < 25)
+                        {
+                        mostra(num[indice1] + ", " + num[indice2] + ", " + num[indice3] + ", " + num[indice4] + ", " + num[indice5]);
+                        indice5 = indice5 + 1;
+                        }
+
+                    indice4 = indice4 + 1
+                    indice5 = indice4 + 1
+                    }
+                
+                indice3 = indice3 + 1;
+                indice4 = indice3 + 1;
+                indice5 = indice4 + 1;
+                }
+            
+            indice2 = indice2 + 1;
+            indice3 = indice2 + 1;
+            indice4 = indice3 + 1;
+            indice5 = indice4 + 1;
+            }
+            
+        indice1 = indice1 + 1;
+        indice2 = indice1 + 1;
+        indice3 = indice2 + 1;
+        indice4 = indice3 + 1;
+        indice4 = indice3 + 1;
+        }
+
+        
+        
+
+
+    </script>
+
+
+</body>
+</html>

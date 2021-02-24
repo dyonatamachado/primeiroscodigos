@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média de Idade dos Familiares</title>
+
+</head>
+<body>
+    <script>
+        function pulaLinha() {
+            document.write("<br><br>");
+        }
+
+        function mostra(frase){
+            document.write(frase)
+            pulaLinha();
+        }
+
+
+        var numeroPessoas = parseInt(prompt("Olá, eu vou calcular a média de idade das pessoas da sua família. Primeiro me informe a quantidade de pessoas na sua família: "));
+        var nomePessoa = "Pessoa 1"
+        var idades = [0]
+        var soma = 0;
+
+        for(var contador = 1;contador <= numeroPessoas; contador++){
+            nomePessoa = prompt("Qual o nome da " + contador + "ª pessoa?");
+            idades.push(parseInt(prompt("Qual é a idade do(a) " + nomePessoa + "?")));
+        }
+
+        for(var indiceDoArray = 0; indiceDoArray <= numeroPessoas; indiceDoArray++){
+            soma = soma + idades[indiceDoArray];
+        }
+
+        var media = (Math.round(((soma/numeroPessoas)*100)))/100;
+
+        mostra("A média de idades da sua família é: " + media + " anos.");
+    </script>
+
+
+</body>
+</html>
