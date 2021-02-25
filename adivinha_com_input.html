@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+<body>
+
+    <h1>Qual é o segredo?</h1>
+    <h2>Digite um número(entre 1 e 10) e veja se você acertou o segredo.</h2>
+    <input type="text">
+    <button>Verifique o Segredo</button>
+
+    <script>
+
+        var segredo = Math.round(Math.random()*10);
+        var input = document.querySelector("input");
+        var button = document.querySelector("button");
+        input.focus();
+        button.onclick = verifica;
+                
+        function verifica(){
+
+            var achou = false;
+            for(var posicao = 0; posicao < segredo.length; posicao++){
+                if(input.value == segredo[posicao]){
+                    alert("Você acertou.");
+                    achou = true;
+                    break;
+                }
+            }
+
+            if(achou == false){
+                alert("Você errou.")
+            }
+                    
+        input.value = "";
+        input.focus();    
+
+        }
+        
+    </script>
+</body>
+</html>
