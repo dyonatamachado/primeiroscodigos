@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+
+<h1>Receitas do Yan</h1>
+
+<script>
+    var ingredientes = [];
+
+    var quantidade = parseInt(prompt("Quantos ingredientes você vai adicionar?"));
+
+    for(contador = 0; contador < quantidade; contador++){
+        var ingrediente = prompt("Informe o Ingrediente " + (contador + 1 ));
+        var colocarNaSacola = analisaIngredientesAnteriores(ingrediente);
+        if(colocarNaSacola == true){
+            guardarIngrediente(ingrediente);
+        } else {
+            alert("Você já adicionou este ingrediente anteriormente. Favor informe outro ingrediente.")
+            contador--;
+        }
+    }
+
+    function guardarIngrediente(ingrediente){
+        ingredientes.push(ingrediente);
+        console.log(ingredientes);
+    }
+
+    function analisaIngredientesAnteriores(ingrediente){ // tomate
+
+        for(var indice = 0; indice < ingredientes.length; indice++){
+            if(ingredientes.length > 0){
+                if(ingredientes[indice] == ingrediente){
+                    return false;
+                }    
+
+            } 
+        
+        }
+
+        return true;
+    }
+   
+
+</script>
