@@ -1,39 +1,88 @@
 <meta charset="UTF-8">
+<style>
+    div.main {
+        background-color: blue;
+        margin: auto;
+        color: white;
+        text-align: center;
+        height: 70%;
+        width: 70%;
+        border-radius: 1%;
+        border-style: ridge;
+
+    }
+</style>
 <body>
+    
 
-    <h1>Qual é o segredo?</h1>
-    <h2>Digite um número(entre 1 e 10) e veja se você acertou o segredo.</h2>
+<div class="main">
+    <h1>Qual é o Segredo?</h1>
+    <h2>Digite um número entre 1 e 10.</h2>
     <input type="text">
-    <button>Verifique o Segredo</button>
+    <button>Compare com o meu segredo</button>
+</div>
 
-    <script>
 
-        var segredo = Math.round(Math.random()*10);
-        var input = document.querySelector("input");
-        var button = document.querySelector("button");
-        input.focus();
-        button.onclick = verifica;
-                
-        function verifica(){
+<script>
 
-            var achou = false;
-            for(var posicao = 0; posicao < segredo.length; posicao++){
-                if(input.value == segredo[posicao]){
-                    alert("Você acertou.");
-                    achou = true;
-                    break;
+    function sorteia(){
+        return Math.round(Math.random() * 10);
+    }
+
+    function guardaNumeros(quantidade){
+        var sacolaNumeros = [];
+        var contador = 1;
+
+        while(contador <= quantidade){
+            var numeroPreSorteado = sorteia();
+
+            if(numeroPreSorteado !== 0){
+                var numeroJaSorteado = false;
+
+                for(var indice = 0; indice < sacolaNumeros.length; indice++){
+                    if(numeroPreSorteado == sacolaNumeros[indice]){
+                        numeroJaSorteado = true;
+                        break;
+                    }
                 }
-            }
 
-            if(achou == false){
-                alert("Você errou.")
-            }
-                    
-        input.value = "";
-        input.focus();    
+                if(numeroJaSorteado == false){
+                    sacolaNumeros.push(numeroPreSorteado);
+                    contador++;
+                }
 
+            }
         }
-        
-    </script>
+
+        return sacolaNumeros;
+    }
+
+    var numerosSorteados = guardaNumeros(3);
+
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verificaSegredo(){
+        var numeroEstaEntreOsSorteados = false;
+
+        for(var indice = 0; indice < numerosSorteados.length; indice++){
+            if(input.value == numerosSorteados[indice]){
+                alert("Uau! Você acertou.");
+                numeroEstaEntreOsSorteados = true;
+                break;
+            }
+        }
+
+        if(numeroEstaEntreOsSorteados == false){
+            alert("Puxa! Você errou.")
+        }
+
+        input.value = "";
+        input.focus();
+    }
+
+    var button = document.querySelector("button");
+    button.onclick = verificaSegredo;
+
+</script>
 </body>
-</html>
